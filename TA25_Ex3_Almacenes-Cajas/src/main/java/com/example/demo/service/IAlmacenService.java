@@ -10,9 +10,9 @@ public interface IAlmacenService {
 	
 	public Almacen guardarAlmacen(Almacen empleado);
 	
-	public Almacen almacenXID(Integer codigo);
+	public Almacen almacenXID(Integer id);
 	
 	public Almacen actualizarAlmacen(Almacen empleado);
 
-	public void eliminarAlmacen(Integer codigo);
+	public void eliminarAlmacen(Integer id);
 }

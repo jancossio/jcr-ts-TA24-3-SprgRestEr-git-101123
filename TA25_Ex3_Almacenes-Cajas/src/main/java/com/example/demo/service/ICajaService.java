@@ -10,9 +10,9 @@ public interface ICajaService {
 	
 	public Caja guardarCaja(Caja caja);
 	
-	public Caja cajaXID(String num_Referencia);
+	public Caja cajaXID(String id);
 	
 	public Caja actualizarCaja(Caja caja);
 
-	public void eliminarCaja(String num_Referencia);
+	public void eliminarCaja(String id);
 }

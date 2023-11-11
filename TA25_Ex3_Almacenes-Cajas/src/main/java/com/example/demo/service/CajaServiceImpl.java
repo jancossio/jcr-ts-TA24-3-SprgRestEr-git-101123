@@ -27,9 +27,9 @@ public class CajaServiceImpl implements ICajaService{
 	}
 
 	@Override
-	public Caja cajaXID(String num_Referencia) {
+	public Caja cajaXID(String id) {
 		
-		return iCajaDAO.findById(num_Referencia).get();
+		return iCajaDAO.findById(id).get();
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class CajaServiceImpl implements ICajaService{
 	}
 
 	@Override
-	public void eliminarCaja(String num_Referencia) {
+	public void eliminarCaja(String id) {
 		
-		iCajaDAO.deleteById(num_Referencia);
+		iCajaDAO.deleteById(id);
 		
 	}
 }

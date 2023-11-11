@@ -20,8 +20,8 @@ import jakarta.persistence.Table;
 public class Almacen {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codigo;
+	@Column(name = "codigo")
+	private Integer id;
 	@Column(name = "lugar")
 	private String lugar;
 	@Column(name = "capacidad")
@@ -36,20 +36,20 @@ public class Almacen {
 
 	}
 	
-	public Almacen(Integer codigo, String lugar, Integer capacidad, List<Caja> caja) {
-		//super();
-		this.codigo = codigo;
+	public Almacen(Integer id, String lugar, Integer capacidad, List<Caja> caja) {
+		super();
+		this.id = id;
 		this.lugar = lugar;
 		this.capacidad = capacidad;
 		this.caja = caja;
 	}
 
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getLugar() {
@@ -80,6 +80,6 @@ public class Almacen {
 
 	@Override
 	public String toString() {
-		return "Almacen [codigo=" + codigo + ", lugar=" + lugar + ", capacidad=" + capacidad + ", caja=" + caja + "]";
+		return "Almacen [id=" + id + ", lugar=" + lugar + ", capacidad=" + capacidad+ "]";
 	}
 }

@@ -16,55 +16,53 @@ import com.example.demo.dto.Almacen;
 import com.example.demo.service.AlmacenServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/almacenes")
 public class AlmacenController {
 	
 	@Autowired
 	AlmacenServiceImpl almacenServiceImpl;
 	
-	@GetMapping("/almacenes")
+	@GetMapping("/all")
 	public List<Almacen> listarAlmacen(){
 		return almacenServiceImpl.listarAlmacenes();
 	}
 	
-	@PostMapping("/almacenes")
-	public Almacen salvarArticulo(@RequestBody Almacen almacen) {
+	@PostMapping("/add")
+	public Almacen salvarAlmacen(@RequestBody Almacen almacen) {
 		
 		return almacenServiceImpl.guardarAlmacen(almacen);
 	}
 	
-	@GetMapping("/almacenes/{codigo}")
-	public Almacen departamentoXID(@PathVariable(name="codigo") Integer codigo) {
+	@GetMapping("/{id}")
+	public Almacen almacenXID(@PathVariable(name="id") Integer id) {
 		
 		Almacen almacen_xid= new Almacen();
 		
-		almacen_xid=almacenServiceImpl.almacenXID(codigo);
-		
-		System.out.println("articulo XID: "+almacen_xid);
-		
+		almacen_xid=almacenServiceImpl.almacenXID(id);
+				
 		return almacen_xid;
 	}
 	
-	@PutMapping("/almacenes/{codigo}")
-	public Almacen actualizarArticulo(@PathVariable(name="codigo")Integer codigo,@RequestBody Almacen almacen) {
+	@PutMapping("/{id}")
+	public Almacen actualizarAlmacen(@PathVariable(name="id")Integer id,@RequestBody Almacen almacen) {
 		
 		Almacen almacen_seleccionado= new Almacen();
 		Almacen almacen_actualizado= new Almacen();
 		
-		almacen_seleccionado= almacenServiceImpl.almacenXID(codigo);
+		almacen_seleccionado= almacenServiceImpl.almacenXID(id);
 		
 		almacen_seleccionado.setLugar(almacen.getLugar());
 		almacen_seleccionado.setCapacidad(almacen.getCapacidad());
 		
-		almacen_seleccionado = almacenServiceImpl.actualizarAlmacen(almacen_seleccionado);
+		almacen_actualizado = almacenServiceImpl.actualizarAlmacen(almacen_seleccionado);
 		
 		System.out.println("El almacen actualizado es: "+ almacen_actualizado);
 		
 		return almacen_actualizado;
 	}
 	
-	@DeleteMapping("/almacenes/{codigo}")
-	public void eliminarDepartamento(@PathVariable(name="codigo")Integer codigo) {
-		almacenServiceImpl.eliminarAlmacen(codigo);
+	@DeleteMapping("/{id}")
+	public void eliminarAlmacen(@PathVariable(name="id")Integer id) {
+		almacenServiceImpl.eliminarAlmacen(id);
 	}
 }

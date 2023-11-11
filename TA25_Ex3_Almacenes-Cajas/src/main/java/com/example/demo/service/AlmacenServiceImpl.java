@@ -26,9 +26,9 @@ public class AlmacenServiceImpl implements IAlmacenService{
 	}
 
 	@Override
-	public Almacen almacenXID(Integer codigo) {
+	public Almacen almacenXID(Integer id) {
 		
-		return iAlmacenDAO.findById(codigo).get();
+		return iAlmacenDAO.findById(id).get();
 	}
 
 	@Override
@@ -38,8 +38,8 @@ public class AlmacenServiceImpl implements IAlmacenService{
 	}
 
 	@Override
-	public void eliminarAlmacen(Integer codigo) {
+	public void eliminarAlmacen(Integer id) {
 		
-		iAlmacenDAO.deleteById(codigo);
+		iAlmacenDAO.deleteById(id);
 	}
 }
